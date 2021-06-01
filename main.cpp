@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 		cout << "Filled container. " << endl;
 		Output(cont, ofst); // Вывод заполненного контейнера
 
-		cout << endl << "Output of square matrix." << endl;
+		cout << "Output of square matrix." << endl;
 		FilteredOutput(cont, ofst); // Процедура, реализующая выборочный вывод информации (только о первом виде объетов - стандартные квадратные матрицы)
 
 		Clear(cont); //Очистка контейнера
