@@ -13,6 +13,7 @@ namespace simple_matrix
 		struct node* head; // Указатель на узел, являющийся "головой" списка  
 	};
 
+	void FilteredOutput(struct container* cont, ofstream& ofst); //Выборочный вывод в указанный поток.
 	void Init(struct container* cont); // Инициализация контейнера
 	void Clear(struct container* cont); // Очистка контейнера и его установка в начальное состояние
 	void Input(struct container* cont, ifstream& ifst); // Ввод содержимого контейнера из указанного потока

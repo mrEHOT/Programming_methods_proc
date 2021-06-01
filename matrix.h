@@ -18,6 +18,7 @@ namespace simple_matrix
 		long sideSize; // Размер стороны
 	};
 
+	void FilteredMtxOutput(matrix* mtx, ofstream& ofst); // Выборочный вывод матриц
 	matrix* MtxInput(ifstream& ifst); // Добавление новой квадратной матрицы на основании данных из потока
 	bool MtxOutput(matrix* mtx, ofstream& ofst); // Вывод информации о квадратной матрице в поток
 	void MtxClear(matrix* mtx); // Очистка памяти, выделенной под хранение матрицы

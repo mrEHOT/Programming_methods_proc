@@ -17,6 +17,7 @@ namespace simple_matrix
 		node* prev; // Указатель на предыдущий элемент списка
 	};
 
+	void FilteredNodeOutput(struct node* head, int pos, ofstream& ofst); // Выборочный вывод узлов
 	bool NodeAdd(struct container* cont, ifstream& ifst); // Добавление нового узла на основании данных из потока
 	void NodeRemove(struct node* head, int pos); // Удаление узла с номером (pos - 1) из списка
 	bool NodeOutput(struct node* head, int pos, ofstream& ofst); // Вывод узла в поток

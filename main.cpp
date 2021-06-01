@@ -5,6 +5,7 @@ using namespace std;
 namespace simple_matrix
 {
 	// Сигнатуры требуемых внешних функций
+	void FilteredOutput(struct container* cont, ofstream& ofst);
 	void Init(struct container* cont);
 	void Clear(struct container* cont);
 	void Input(struct container* cont, ifstream& ifst);
@@ -43,6 +44,9 @@ int main(int argc, char* argv[])
 
 	cout << "Filled container. " << endl;
 	Output(cont, ofst); // Вывод заполненного контейнера
+
+	cout << "Output of square matrix." << endl;
+	FilteredOutput(cont, ofst); // Процедура, реализующая выборочный вывод информации (только о первом виде объетов - стандартные квадратные матрицы)
 
 	Clear(cont); //Очистка контейнера
 	cout << "Empty container. " << endl;
