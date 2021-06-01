@@ -139,7 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="container.cpp" />
+    <ClCompile Include="diagonalMtx.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="node.cpp" />
+    <ClCompile Include="squareMtx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="container.h" />
+    <ClInclude Include="diagonalMtx.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="node.h" />
+    <ClInclude Include="squareMtx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
