@@ -20,6 +20,7 @@ namespace simple_matrix
 		outputStyle style;
 	};
 
+	void FilteredMtxOutput(matrix* mtx, ofstream& ofst);
 	bool MtxCompare(matrix* firstMtx, matrix* secondMtx);
 	int MtxSum(matrix* mtx);
 	matrix* MtxInput(ifstream& ifst);

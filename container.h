@@ -9,15 +9,14 @@ namespace simple_matrix
 {
 	struct container
 	{
-		long size; // Переменная для контроля размера списка
-		struct node* head; // Указатель на узел, являющийся "головой" списка  
+		long size;
+		struct node* head;
 	};
-
-	void Sort(struct container* cont); // Сортировка контейнера
-	void Init(struct container* cont); // Инициализация контейнера
-	void Clear(struct container* cont); // Очистка контейнера и его установка в начальное состояние
-	bool Input(struct container* cont, ifstream& ifst); // Ввод содержимого контейнера из указанного потока
-	void Output(struct container* cont, ofstream& ofst); //Вывод содержимого контейнера в указанный поток
+	void Sort(struct container* cont);
+	void FilteredOutput(struct container* cont, ofstream& ofst);
+	void Init(struct container* cont);
+	void Clear(struct container* cont);
+	bool Input(struct container* cont, ifstream& ifst);
+	void Output(struct container* cont, ofstream& ofst);
 } // end namespace simple_matrix
-//Структура, описывающая двунаправленный кольцевой список, состоящий из узлов (node)
 #endif // !container_definition

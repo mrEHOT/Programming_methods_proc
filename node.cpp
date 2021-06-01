@@ -95,7 +95,7 @@ namespace simple_matrix
 		for (int i = 0; i < pos; i++)
 		{
 			currNode = currNode->next;
-		} // 
+		} // Выполняем прямой обход списка пока не найдем элемент с нужным номером
 
 		if (!MtxOutput(currNode->mtx, ofst))
 		{
@@ -104,5 +104,18 @@ namespace simple_matrix
 		} // Если вывод матрицы в поток выполнен корректно => TRUE => !TRUE = FALSE => сообщение об ошибке не будет получено
 
 		return true; // Возвращаем TRUE, т.к. успешно вывели все объекты matrix в поток
+	}
+
+	// Выборочный вывод узлов в поток
+	void FilteredNodeOutput(struct node* head, int pos, ofstream& ofst)
+	{
+		node* currNode = head; // Устанавливаем указатель текущей позиции на "голову" списка
+
+		for (int i = 0; i < pos; i++)
+		{
+			currNode = currNode->next;
+		} // Выполняем прямой обход списка пока не найдем элемент с нужным номером
+
+		FilteredMtxOutput(currNode->mtx, ofst);
 	}
 } // end namespace simple_matrix

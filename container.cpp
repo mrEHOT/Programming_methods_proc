@@ -65,4 +65,14 @@ namespace simple_matrix
 			} // Если элементы вывелся корректно => вернется TRUE => !TRUE = FALSE => сообщение об ошибке не появится на экране
 		} // Поочередный вывод элементов контейнера в поток
 	}
+
+	//Выборочный вывод в указанный поток.
+	void FilteredOutput(struct container* cont, ofstream& ofst)
+	{
+		ofst << endl << "Filtered Output - Square matrix:" << endl << endl; // Выводим общее количество элементов в контейнере
+		for (int i = 0; i < cont->size; i++)
+		{
+			FilteredNodeOutput(cont->head, i, ofst);
+		} // Поочередный вывод стнадартных квадратных матриц из контейнера в поток
+	}
 } //end namespace simple_matrix

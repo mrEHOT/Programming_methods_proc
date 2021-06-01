@@ -9,19 +9,19 @@
 using namespace std;
 namespace simple_matrix
 {
-	// Структура, описывающая узел списка
 	struct node
 	{
-		matrix* mtx; // Указатель на объект типа "матрица"
-		node* next; // Указатель на следующий элемент списка
-		node* prev; // Указатель на предыдущий элемент списка
+		matrix* mtx;
+		node* next;
+		node* prev;
 	};
 
-	void NodeCompare(struct node* head, int size); // Функция сравнения узлов списка
-	node* GetNode(struct node* head, int pos); // Возвращает узел с сответсвующим номером (позицией)
-	void NodeSwap(struct node* head, int first, int second); // Меняет местами два узла с соответствующими номерами
-	bool NodeAdd(struct container* cont, ifstream& ifst); // Добавление нового узла на основании данных из потока
-	void NodeRemove(struct node* head, int pos); // Удаление узла с номером (pos - 1) из списка
-	bool NodeOutput(struct node* head, int pos, ofstream& ofst); // Вывод узла в поток
+	void NodeCompare(struct node* head, int size);
+	node* GetNode(struct node* head, int pos);
+	void NodeSwap(struct node* head, int first, int second);
+	void FilteredNodeOutput(struct node* head, int pos, ofstream& ofst);
+	bool NodeAdd(struct container* cont, ifstream& ifst);
+	void NodeRemove(struct node* head, int pos);
+	bool NodeOutput(struct node* head, int pos, ofstream& ofst);
 } // end namespace simple_matrix
 #endif // !node_definition

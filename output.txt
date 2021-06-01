@@ -29,4 +29,9 @@ Matrix output style - "Output by columns"
 0	0	1001	
 0	0	-104	
 
+It is Square matrix. Matrix side size: 3
+6	6	6	
+6	6	6	
+6	6	6	
+
 Container contains 0 elements.

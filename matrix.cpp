@@ -103,6 +103,7 @@ namespace simple_matrix
 		return newMatrix;
 	}
 
+
 	bool MtxOutput(matrix* mtx, ofstream& ofst)
 	{
 		bool check = false;
@@ -137,6 +138,7 @@ namespace simple_matrix
 		}
 
 	}
+
 
 	void MtxClear(matrix* mtx)
 	{
@@ -173,6 +175,13 @@ namespace simple_matrix
 			return false;
 		}
 		return true;
-	}
 
-} // end namesapce simple_matrix
+		void FilteredMtxOutput(matrix * mtx, ofstream & ofst)
+		{
+			if (mtx->key == SQUARE)
+			{
+				SquareOutput((squareMtx*)mtx, ofst);
+			}
+		}
+
+	} // end namesapce simple_matrix
