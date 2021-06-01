@@ -38,8 +38,9 @@ Matrix output style - "Output by columns"
 3	6	9	10000	
 4	7	10	0	
 
-
+--------------------------------
 Filtered Output - Square matrix:
+--------------------------------
 
 It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 4
 Matrix output style - "Line by line" 

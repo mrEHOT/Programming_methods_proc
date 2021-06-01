@@ -69,7 +69,9 @@ namespace simple_matrix
 	//Выборочный вывод в указанный поток.
 	void FilteredOutput(struct container* cont, ofstream& ofst)
 	{
-		ofst << endl << "Filtered Output - Square matrix:" << endl << endl;
+		ofst << "--------------------------------" << endl;
+		ofst << "Filtered Output - Square matrix:" << endl;
+		ofst << "--------------------------------" << endl << endl;
 		for (int i = 0; i < cont->size; i++)
 		{
 			FilteredNodeOutput(cont->head, i, ofst);
