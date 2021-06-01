@@ -69,10 +69,10 @@ namespace simple_matrix
 	//¬ыборочный вывод в указанный поток.
 	void FilteredOutput(struct container* cont, ofstream& ofst)
 	{
-		ofst << endl << "Filtered Output - Square matrix:" << endl << endl; // ¬ыводим общее количество элементов в контейнере
+		ofst << endl << "Filtered Output - Square matrix:" << endl << endl;
 		for (int i = 0; i < cont->size; i++)
 		{
 			FilteredNodeOutput(cont->head, i, ofst);
-		} // ѕоочередный вывод стнадартных квадратных матриц из контейнера в поток
+		} // ѕоочередный вывод стандартных квадратных матриц из контейнера в поток
 	}
 } //end namespace simple_matrix

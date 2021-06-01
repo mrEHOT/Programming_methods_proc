@@ -29,9 +29,16 @@ Matrix output style - "Output by columns"
 0	0	1001	
 0	0	-104	
 
-It is Square matrix. Matrix side size: 3
-6	6	6	
-6	6	6	
-6	6	6	
+
+Filtered Output - Square matrix:
+
+It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 4
+Matrix output style - "Output by columns" 
+12	-99	
+-9	100	
+
+It is Square matrix. Matrix side size: 6. The sum of the elements of the matrix: 36
+Matrix output style - "Output to a one-dimensional array" 
+[ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ]
 
 Container contains 0 elements.
