@@ -1,31 +1,48 @@
 #include "matrix.h"
 namespace simple_matrix
 {
-	// ?обавление новой квадратной матрицы на основании данных из потока
+
 	matrix* MtxInput(ifstream& ifst)
 	{
 		matrix* newMatrix;
 		int currKey;
+		int style = -1;
+
 		ifst >> currKey;
+		ifst >> style;
 
 		switch (currKey)
 		{
 		case 0:
 			newMatrix = (matrix*)SquareInput(ifst);
-			newMatrix->key = SQUARE;
-			break;
+			if (MtxStyleSet(newMatrix, style))
+			{
+				newMatrix->key = SQUARE;
+				break;
+			}
+			else
+			{
+				return NULL;
+			}
 		case 1:
 			newMatrix = (matrix*)DiagonalInput(ifst);
-			newMatrix->key = DIAGONAL;
-			break;
+			if (MtxStyleSet(newMatrix, style))
+			{
+				newMatrix->key = DIAGONAL;
+				break;
+			}
+			else
+			{
+				return NULL;
+			}
 		default:
-			return NULL; // ¬озвращаем NULL, т.к. не удалось идентифицировать к какому типу принадлежит матрица
+			return NULL;
 		}
 
-		return newMatrix; // ¬озвращаем указатель на созданную матрицу
+		return newMatrix;
 	}
 
-	// ¬ывод информации о квадратной матрице в поток
+
 	bool MtxOutput(matrix* mtx, ofstream& ofst)
 	{
 		bool check = false;
@@ -36,37 +53,57 @@ namespace simple_matrix
 			{
 				SquareOutput((squareMtx*)mtx, ofst);
 				return true;
-			} // ?сли выводима¤ в поток матрица ¤влетс¤ обыкновенной квадртной матрицей => вывод в поток + TRUE
+			}
 
 			if (mtx->key == DIAGONAL)
 			{
 				DiagonalOutput((diagonalMtx*)mtx, ofst);
 				return true;
-			} // ?сли выводима¤ в поток матрица ¤влетс¤ диагональной матрицей, полученной на основании одномерного массива => вывод в поток + TRUE
+			}
 
-			check = true; // ?сли матрица не принадлежит ни одному из типов => выставл¤ем TRUE
+			check = true;
 		}
 
 		if (check)
 		{
 			ofst << "Incorrect matrix!" << endl;
 			return false;
-		} // ¬ывод сообщени¤ об ошибке в том случае, когда матрица не принадлежит ни к одному из предусмотренных типов
+		}
 
 	}
 
-	// ќчистка пам¤ти, выделенной под хранение матрицы
+
 	void MtxClear(matrix* mtx)
 	{
 		if (mtx->key == SQUARE)
 		{
 			SquareClear((squareMtx*)mtx);
-		} //ќчистка пам¤ти дл¤ обычной квадратной матрицы
+		}
 
 		if (mtx->key == DIAGONAL)
 		{
 			DiagonalClear((diagonalMtx*)mtx);
-		} //ќчистка пам¤ти дл¤ диагональной матрицы матрицы
+		}
 
+	}
+
+
+	bool MtxStyleSet(matrix* mtx, int style)
+	{
+		switch (style)
+		{
+		case 0:
+			mtx->style = LINEBYLINE;
+			break;
+		case 1:
+			mtx->style = BYCOLUMNS;
+			break;
+		case 2:
+			mtx->style = ONEDIMENARR;
+			break;
+		default:
+			return false;
+		}
+		return true;
 	}
 } // end namesapce simple_matrix

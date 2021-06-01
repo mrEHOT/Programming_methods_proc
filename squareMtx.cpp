@@ -5,15 +5,45 @@ namespace simple_matrix
 	void SquareOutput(struct squareMtx* mtx, ofstream& ofst)
 	{
 		ofst << "It is Square matrix. Matrix side size: " << mtx->sideSize << endl;
-		for (int row = 0; row < mtx->sideSize; row++)
+
+		switch (mtx->style)
 		{
-			for (int col = 0; col < mtx->sideSize; col++)
+		case 0:
+			for (int row = 0; row < mtx->sideSize; row++)
 			{
-				ofst << mtx->currentMtx[row][col] << "\t";
+				for (int col = 0; col < mtx->sideSize; col++)
+				{
+					ofst << mtx->currentMtx[row][col] << "\t";
+				}
+				ofst << endl;
 			}
 			ofst << endl;
+			break;
+		case 1:
+			for (int col = 0; col < mtx->sideSize; col++)
+			{
+				for (int row = 0; row < mtx->sideSize; row++)
+				{
+					ofst << mtx->currentMtx[row][col] << "\t";
+				}
+				ofst << endl;
+			}
+			ofst << endl;
+			break;
+		case 2:
+			ofst << "[ ";
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				for (int col = 0; col < mtx->sideSize; col++)
+				{
+					ofst << mtx->currentMtx[row][col] << " ";
+				}
+			}
+			ofst << "]" << endl;
+			break;
+		default:
+			break;
 		}
-		ofst << endl;
 	}
 
 	// ¬вод стандартной матрицы на основании данных из потока
@@ -27,7 +57,7 @@ namespace simple_matrix
 
 		squareMtx* mtx = new squareMtx;
 
-		ifst >> mtx->sideSize; // —читываем размер двумерного массива (кол-во элементов в одномерном), затем считываем сами элементы
+		ifst >> mtx->sideSize; // —читываем размер двумерного массива 
 		mtx->currentMtx = new int* [mtx->sideSize]; // —оздаем массив указателей на указатели
 		for (int row = 0; row < mtx->sideSize; row++)
 		{

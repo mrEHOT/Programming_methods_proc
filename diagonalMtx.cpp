@@ -5,23 +5,56 @@ namespace simple_matrix
 	void DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst)
 	{
 		ofst << "It is Diagonal matrix. Matrix side size: " << mtx->sideSize << endl;
-		for (int row = 0; row < mtx->sideSize; row++)
+
+		switch (mtx->style)
 		{
-			for (int col = 0; col < mtx->sideSize; col++)
+		case 0:
+			for (int row = 0; row < mtx->sideSize; row++)
 			{
-				if (row != col)
+				for (int col = 0; col < mtx->sideSize; col++)
 				{
-					ofst << "0" << "\t";
+					if (row != col)
+					{
+						ofst << "0" << "\t";
+					}
+					else
+					{
+						ofst << mtx->currentMtx[row] << "\t";
+					}
 				}
-				else
-				{
-					ofst << mtx->currentMtx[row] << "\t";
-				}
+				ofst << endl;
 			}
 			ofst << endl;
+			break;
+		case 1:
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				for (int col = 0; col < mtx->sideSize; col++)
+				{
+					if (row != col)
+					{
+						ofst << "0" << "\t";
+					}
+					else
+					{
+						ofst << mtx->currentMtx[row] << "\t";
+					}
+				}
+				ofst << endl;
+			}
+			ofst << endl;
+			break;
+		case 2:
+			ofst << "[ ";
+			for (int col = 0; col < mtx->sideSize; col++)
+			{
+				ofst << mtx->currentMtx[col] << " ";
+			}
+			ofst << "]" << endl;
+			break;
+		default:
+			break;
 		}
-
-		ofst << endl;
 	}
 
 	// Ввод диагональной матрицы на основании данных из потока
