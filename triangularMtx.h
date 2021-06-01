@@ -10,7 +10,6 @@ namespace simple_matrix
 	enum type;
 	enum outputStyle;
 
-	
 	struct triangularMtx
 	{
 		type key;

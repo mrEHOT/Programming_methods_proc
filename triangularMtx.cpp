@@ -1,7 +1,6 @@
 #include "triangularMtx.h"
 namespace simple_matrix
 {
-	
 	int TriangularSum(struct triangularMtx* mtx)
 	{
 		if (!mtx->sumMarker)
@@ -19,7 +18,6 @@ namespace simple_matrix
 		}
 	}
 
-	
 	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst)
 	{
 		int count = 0;
@@ -82,7 +80,6 @@ namespace simple_matrix
 		ofst << endl;
 	}
 
-	
 	triangularMtx* TriangularInput(ifstream& ifst)
 	{
 		string content = "";
@@ -132,7 +129,6 @@ namespace simple_matrix
 		}
 	}
 
-	
 	void TriangularClear(struct triangularMtx* mtx)
 	{
 		delete[] mtx->currentMtx;
