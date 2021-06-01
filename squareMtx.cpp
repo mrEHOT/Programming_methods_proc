@@ -1,6 +1,27 @@
 #include "squareMtx.h"
 namespace simple_matrix
 {
+	//Посчитать сумму элементов в квадратной матрице
+	int SquareSum(struct squareMtx* mtx)
+	{
+		if (!mtx->sumMarker)
+		{
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				for (int col = 0; col < mtx->sideSize; col++)
+				{
+					mtx->sum += mtx->currentMtx[row][col];
+				}
+			}
+			mtx->sumMarker = true; // Фиксируем, что сумма была посчитана
+			return mtx->sum;
+		} // Если сумма еще не была посчитана => считаем и возвращаем
+		else
+		{
+			return mtx->sum;
+		} // Возвращаем ранее зафиксированное значение суммы
+	}
+
 	// Вывод стандартной матрицы в поток
 	void SquareOutput(struct squareMtx* mtx, ofstream& ofst)
 	{

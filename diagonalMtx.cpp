@@ -1,6 +1,24 @@
 #include "diagonalMtx.h"
 namespace simple_matrix
 {
+	//Посчитать сумму элементов в диагональной матрице матрице
+	int DiagonalSum(struct diagonalMtx* mtx)
+	{
+		if (!mtx->sumMarker)
+		{
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				mtx->sum += mtx->currentMtx[row];
+			}
+			mtx->sumMarker = true; // Фиксируем, что сумма была посчитана
+			return mtx->sum;
+		} // Если сумма еще не была посчитана => считаем и возвращаем
+		else
+		{
+			return mtx->sum;
+		} // Возвращаем ранее зафиксированное значение суммы
+	}
+
 	// Вывод диагональной матрицы в поток
 	void DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst)
 	{
