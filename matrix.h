@@ -10,8 +10,8 @@
 using namespace std;
 namespace simple_matrix
 {
-	enum type { SQUARE, DIAGONAL, TRIANGULAR }; // Тип квадратной матрицы: 1. Обычный двумерный массив размером n x n; 2. Диагональная матрица (на основе одномерного массива)
-	enum outputStyle { LINEBYLINE, BYCOLUMNS, ONEDIMENARR }; // Выбор способа вывода матрицы: 1)Построчно; 2)По столбцам; 3)В виде одномерного массива
+	enum type { SQUARE, DIAGONAL, TRIANGULAR };
+	enum outputStyle { LINEBYLINE, BYCOLUMNS, ONEDIMENARR };
 
 	struct matrix
 	{
@@ -20,6 +20,8 @@ namespace simple_matrix
 		outputStyle style;
 	};
 
+	bool MtxCompare(matrix* firstMtx, matrix* secondMtx);
+	int MtxSum(matrix* mtx);
 	matrix* MtxInput(ifstream& ifst);
 	bool MtxOutput(matrix* mtx, ofstream& ofst);
 	void MtxClear(matrix* mtx);

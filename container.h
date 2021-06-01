@@ -13,6 +13,7 @@ namespace simple_matrix
 		struct node* head; // ”казатель на узел, €вл€ющийс€ "головой" списка  
 	};
 
+	void Sort(struct container* cont); // —ортировка контейнера
 	void Init(struct container* cont); // »нициализаци€ контейнера
 	void Clear(struct container* cont); // ќчистка контейнера и его установка в начальное состо€ние
 	bool Input(struct container* cont, ifstream& ifst); // ¬вод содержимого контейнера из указанного потока

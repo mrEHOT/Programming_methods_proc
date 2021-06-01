@@ -3,6 +3,12 @@
 
 namespace simple_matrix
 {
+	// Сортировка контейнера
+	void Sort(struct container* cont)
+	{
+		NodeCompare(cont->head, cont->size); // Вызов функции сравнения узлов
+	}
+
 	// Инициализация контейнера
 	void Init(struct container* cont)
 	{
@@ -19,7 +25,7 @@ namespace simple_matrix
 		} // При пустом контейнере очистка не требуется
 		else
 		{
-			for (int i = cont->size; i > 0; i--)
+			for (int i = cont->size - 1; i >= 0; i--)
 			{
 				NodeRemove(cont->head, i); // Выполняем удаление каждого узла списка (каждого элемента контейнера)
 			}

@@ -1,7 +1,23 @@
 #include "diagonalMtx.h"
 namespace simple_matrix
 {
-	// Вывод диагональной матрицы в поток
+	int DiagonalSum(struct diagonalMtx* mtx)
+	{
+		if (!mtx->sumMarker)
+		{
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				mtx->sum += mtx->currentMtx[row];
+			}
+			mtx->sumMarker = true;
+			return mtx->sum;
+		}
+		else
+		{
+			return mtx->sum;
+		}
+	}
+
 	void DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst)
 	{
 		ofst << "It is Diagonal matrix. Matrix side size: " << mtx->sideSize << endl;
@@ -60,37 +76,35 @@ namespace simple_matrix
 		ofst << endl;
 	}
 
-	// Ввод диагональной матрицы на основании данных из потока
 	diagonalMtx* DiagonalInput(ifstream& ifst)
 	{
-		string content = ""; // Создаем пустую строку для считывания элементов массив
-		string delimiter = ","; // Разделитель
-		string part = ""; // Строка для записи отдельных элементов массива
+		string content = "";
+		string delimiter = ",";
+		string part = "";
 		size_t pos = 0;
 		int col = 0;
 
 		diagonalMtx* mtx = new diagonalMtx;
 
-		ifst >> mtx->sideSize >> content; // Считываем размер матрицы (кол-во элементов в одномерном массиве), затем считываем сами элементы
-		mtx->currentMtx = new int[mtx->sideSize]; // Создаем новый динамический массив
+		ifst >> mtx->sideSize >> content;
+		mtx->currentMtx = new int[mtx->sideSize];
 
 
 		while ((pos = content.find(delimiter)) != string::npos)
 		{
 			part = content.substr(0, pos);
-			mtx->currentMtx[col] = atoi(part.c_str()); // Заполняем col элемент массива
+			mtx->currentMtx[col] = atoi(part.c_str());
 			col++;
 			content.erase(0, pos + delimiter.length());
-		} // Выполняем парсинг строки по разделителю ","
+		}
 
-		mtx->currentMtx[col] = atoi(content.c_str()); // Вводим последний элемент массива
+		mtx->currentMtx[col] = atoi(content.c_str());
 
 		return mtx;
 	}
 
-	// Очистка памяти
 	void DiagonalClear(struct diagonalMtx* mtx)
 	{
-		delete[] mtx->currentMtx; // После вывода очищаем область памяти, выделенную под массив 
+		delete[] mtx->currentMtx;
 	}
 } // end namesapce simple_matrix
