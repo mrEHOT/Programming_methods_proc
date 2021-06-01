@@ -1,4 +1,4 @@
-Container contains 3 elements.
+Container contains 5 elements.
 It is Square matrix. Matrix side size: 6
 1	1	1	1	1	1	
 1	1	1	1	1	1	
@@ -19,5 +19,14 @@ It is Diagonal matrix. Matrix side size: 7
 It is Square matrix. Matrix side size: 2
 12	-9	
 -99	100	
+
+It is Triangular matrix. Matrix side size: 3
+3	0	0	
+5	100	0	
+0	1001	-104	
+
+It is Triangular matrix. Matrix side size: 2
+-9	0	
+99	30	
 
 Container contains 0 elements.

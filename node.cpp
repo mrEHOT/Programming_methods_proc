@@ -7,27 +7,35 @@ namespace simple_matrix
 		node* newNode = new node(); // Инициализируем новый объект node при помощи конструктора поумолчанию
 		newNode->mtx = MtxInput(ifst); // Устанавливаем указатель на объект типа matrix
 
-		if (newNode->mtx == NULL)
+		if (newNode->mtx != NULL)
 		{
-			delete (newNode);
-			return false;
-		} // Если объект типа matrix не удалось считать из потока => указатель на matrix == NULL => добавлять элемент в список не нужно
+			if (newNode->mtx == NULL)
+			{
+				delete (newNode);
+				return false;
+			} // Если объект типа matrix не удалось считать из потока => указатель на matrix == NULL => добавлять элемент в список не нужно
 
-		if (cont->head == NULL)
-		{
-			cont->head = newNode;
-			newNode->next = newNode;
-			newNode->prev = newNode;
-		} // Если список пустой, то добавляем первый элемент
+			if (cont->head == NULL)
+			{
+				cont->head = newNode;
+				newNode->next = newNode;
+				newNode->prev = newNode;
+			} // Если список пустой, то добавляем первый элемент
+			else
+			{
+				newNode->next = cont->head;
+				newNode->prev = cont->head->prev;
+				cont->head->prev->next = newNode;
+				cont->head->prev = newNode;
+			} // В списке уже есть "голова"
+
+			return true;
+		}
 		else
 		{
-			newNode->next = cont->head;
-			newNode->prev = cont->head->prev;
-			cont->head->prev->next = newNode;
-			cont->head->prev = newNode;
-		} // В списке уже есть "голова"
+			return false;
+		}
 
-		return true;
 	}
 
 	// Удаление узла с номером (pos - 1) из списка

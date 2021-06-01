@@ -30,7 +30,7 @@ namespace simple_matrix
 	}
 
 	// Ввод содержимого контейнера из указанного потока
-	void Input(struct container* cont, ifstream& ifst)
+	bool Input(struct container* cont, ifstream& ifst)
 	{
 		while (!ifst.eof())
 		{
@@ -38,7 +38,13 @@ namespace simple_matrix
 			{
 				(cont->size)++; // Увеличиваем количество элементов в контейнере
 			} // Если операция добавления в список выполнена корректно => возврашается TRUE и увеличивается размер контейнера
+			else
+			{
+				return false;
+			} // Операция добавления в список не выполнена
 		} // Пока не достикнут конец потока
+
+		return true;
 	}
 
 	//Вывод содержимого контейнера в указанный поток

@@ -6,10 +6,11 @@
 #include <fstream>
 #include "squareMtx.h"
 #include "diagonalMtx.h"
+#include "triangularMtx.h"
 using namespace std;
 namespace simple_matrix
 {
-	enum type { SQUARE, DIAGONAL }; // “ип квадратной матрицы: 1. ќбычный двумерный массив размером n x n; 2. ƒиагональна€ матрица (на основе одномерного массива)
+	enum type { SQUARE, DIAGONAL, TRIANGULAR }; // “ип квадратной матрицы: 1. ќбычный двумерный массив размером n x n; 2. ƒиагональна€ матрица (на основе одномерного массива)
 
 // —труктура обобщающа€ все виды квадратных матриц
 	struct matrix

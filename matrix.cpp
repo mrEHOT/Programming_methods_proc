@@ -1,7 +1,7 @@
 #include "matrix.h"
 namespace simple_matrix
 {
-	// ?обавление новой квадратной матрицы на основании данных из потока
+	// Добавление новой квадратной матрицы на основании данных из потока
 	matrix* MtxInput(ifstream& ifst)
 	{
 		matrix* newMatrix;
@@ -12,20 +12,45 @@ namespace simple_matrix
 		{
 		case 0:
 			newMatrix = (matrix*)SquareInput(ifst);
-			newMatrix->key = SQUARE;
-			break;
+			if (newMatrix != NULL)
+			{
+				newMatrix->key = SQUARE;
+				break;
+			}
+			else
+			{
+				return NULL;
+			}
 		case 1:
 			newMatrix = (matrix*)DiagonalInput(ifst);
-			newMatrix->key = DIAGONAL;
-			break;
+			if (newMatrix != NULL)
+			{
+				newMatrix->key = DIAGONAL;
+				break;
+			}
+			else
+			{
+				return NULL;
+			}
+		case 2:
+			newMatrix = (matrix*)TriangularInput(ifst);
+			if (newMatrix != NULL)
+			{
+				newMatrix->key = TRIANGULAR;
+				break;
+			}
+			else
+			{
+				return NULL;
+			}
 		default:
-			return NULL; // ¬озвращаем NULL, т.к. не удалось идентифицировать к какому типу принадлежит матрица
+			return NULL; // Возвращаем NULL, т.к. не удалось идентифицировать к какому типу принадлежит матрица
 		}
 
-		return newMatrix; // ¬озвращаем указатель на созданную матрицу
+		return newMatrix; // Возвращаем указатель на созданную матрицу
 	}
 
-	// ¬ывод информации о квадратной матрице в поток
+	// Вывод информации о квадратной матрице в поток
 	bool MtxOutput(matrix* mtx, ofstream& ofst)
 	{
 		bool check = false;
@@ -36,37 +61,48 @@ namespace simple_matrix
 			{
 				SquareOutput((squareMtx*)mtx, ofst);
 				return true;
-			} // ?сли выводима¤ в поток матрица ¤влетс¤ обыкновенной квадртной матрицей => вывод в поток + TRUE
+			} // Если выводимая в поток матрица явлется обыкновенной квадртной матрицей => вывод в поток + TRUE
 
 			if (mtx->key == DIAGONAL)
 			{
 				DiagonalOutput((diagonalMtx*)mtx, ofst);
 				return true;
-			} // ?сли выводима¤ в поток матрица ¤влетс¤ диагональной матрицей, полученной на основании одномерного массива => вывод в поток + TRUE
+			} // Если выводимая в поток матрица явлется диагональной матрицей, полученной на основании одномерного массива => вывод в поток + TRUE
 
-			check = true; // ?сли матрица не принадлежит ни одному из типов => выставл¤ем TRUE
+			if (mtx->key == TRIANGULAR)
+			{
+				TriangularOutput((triangularMtx*)mtx, ofst);
+				return true;
+			} // Если выводимая в поток матрица явлется  нижней трегольной матрицей, полученной на основании одномерного массива => вывод в поток + TRUE
+
+			check = true; // Если матрица не принадлежит ни одному из типов => выставляем TRUE
 		}
 
 		if (check)
 		{
 			ofst << "Incorrect matrix!" << endl;
 			return false;
-		} // ¬ывод сообщени¤ об ошибке в том случае, когда матрица не принадлежит ни к одному из предусмотренных типов
+		} // Вывод сообщения об ошибке в том случае, когда матрица не принадлежит ни к одному из предусмотренных типов
 
 	}
 
-	// ќчистка пам¤ти, выделенной под хранение матрицы
+	// Очистка памяти, выделенной под хранение матрицы
 	void MtxClear(matrix* mtx)
 	{
 		if (mtx->key == SQUARE)
 		{
 			SquareClear((squareMtx*)mtx);
-		} //ќчистка пам¤ти дл¤ обычной квадратной матрицы
+		} //Очистка памяти для обычной квадратной матрицы
 
 		if (mtx->key == DIAGONAL)
 		{
 			DiagonalClear((diagonalMtx*)mtx);
-		} //ќчистка пам¤ти дл¤ диагональной матрицы матрицы
+		} //Очистка памяти для диагональной матрицы матрицы
+
+		if (mtx->key == TRIANGULAR)
+		{
+			TriangularClear((triangularMtx*)mtx);
+		} //Очистка памяти для диагональной матрицы матриц
 
 	}
 } // end namesapce simple_matrix
