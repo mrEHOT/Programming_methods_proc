@@ -8,12 +8,14 @@ using namespace std;
 namespace simple_matrix
 {
 	enum type;
+	enum outputStyle;
 
 	// Структура, характеризующая обыкновенные квадратные матрицы
 	struct squareMtx
 	{
 		type key;
 		long sideSize; // Размер стороны матрицы
+		outputStyle style; // Способ вывода
 		int** currentMtx; // Динамический двумерный массив для хранения объектов типа int
 	};
 
