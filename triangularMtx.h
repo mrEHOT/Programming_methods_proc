@@ -8,13 +8,16 @@ using namespace std;
 namespace simple_matrix
 {
 	enum type;
+	enum outputStyle;
 
 	// Структура, характеризующая нижние треугольные матрицы
 	struct triangularMtx
 	{
 		type key;
 		long sideSize; // Размер стороны матрицы
-		int* currentMtx; // Динамический двумерный массив для хранения объектов типа int
+		outputStyle style; // Способ вывода
+		int* currentMtx; // Динамический массив для хранения объектов типа int
+		int currentMtxSize; // Количество элементов в массиве
 	};
 
 	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst); // Вывод нижней треугольной матрицы в поток

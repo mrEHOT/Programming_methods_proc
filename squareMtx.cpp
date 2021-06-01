@@ -9,6 +9,7 @@ namespace simple_matrix
 		switch (mtx->style)
 		{
 		case 0:
+			ofst << "Matrix output style - \"Line by line\" " << endl;
 			for (int row = 0; row < mtx->sideSize; row++)
 			{
 				for (int col = 0; col < mtx->sideSize; col++)
@@ -17,9 +18,9 @@ namespace simple_matrix
 				}
 				ofst << endl;
 			}
-			ofst << endl;
 			break;
 		case 1:
+			ofst << "Matrix output style - \"Output by columns\" " << endl;
 			for (int col = 0; col < mtx->sideSize; col++)
 			{
 				for (int row = 0; row < mtx->sideSize; row++)
@@ -28,9 +29,9 @@ namespace simple_matrix
 				}
 				ofst << endl;
 			}
-			ofst << endl;
 			break;
 		case 2:
+			ofst << "Matrix output style - \"Output to a one-dimensional array\" " << endl;
 			ofst << "[ ";
 			for (int row = 0; row < mtx->sideSize; row++)
 			{
@@ -44,6 +45,8 @@ namespace simple_matrix
 		default:
 			break;
 		}
+
+		ofst << endl;
 	}
 
 	// Ввод стандартной матрицы на основании данных из потока

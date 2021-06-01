@@ -1,7 +1,6 @@
 #include "matrix.h"
 namespace simple_matrix
 {
-
 	matrix* MtxInput(ifstream& ifst)
 	{
 		matrix* newMatrix;
@@ -70,10 +69,8 @@ namespace simple_matrix
 		default:
 			return NULL;
 		}
-
 		return newMatrix;
 	}
-
 
 	bool MtxOutput(matrix* mtx, ofstream& ofst)
 	{
@@ -110,7 +107,6 @@ namespace simple_matrix
 
 	}
 
-
 	void MtxClear(matrix* mtx)
 	{
 		if (mtx->key == SQUARE)
@@ -127,23 +123,25 @@ namespace simple_matrix
 		{
 			TriangularClear((triangularMtx*)mtx);
 		}
+	}
 
-		bool MtxStyleSet(matrix * mtx, int style)
+	bool MtxStyleSet(matrix* mtx, int style)
+	{
+		switch (style)
 		{
-			switch (style)
-			{
-			case 0:
-				mtx->style = LINEBYLINE;
-				break;
-			case 1:
-				mtx->style = BYCOLUMNS;
-				break;
-			case 2:
-				mtx->style = ONEDIMENARR;
-				break;
-			default:
-				return false;
-			}
-			return true;
+		case 0:
+			mtx->style = LINEBYLINE;
+			break;
+		case 1:
+			mtx->style = BYCOLUMNS;
+			break;
+		case 2:
+			mtx->style = ONEDIMENARR;
+			break;
+		default:
+			return false;
 		}
-	} // end namesapce simple_matrix
+		return true;
+	}
+
+} // end namesapce simple_matrix

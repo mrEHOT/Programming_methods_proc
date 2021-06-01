@@ -10,7 +10,7 @@
 using namespace std;
 namespace simple_matrix
 {
-	enum type { SQUARE, DIAGONAL  TRIANGULAR }; // Тип квадратной матрицы: 1. Обычный двумерный массив размером n x n; 2. Диагональная матрица (на основе одномерного массива)
+	enum type { SQUARE, DIAGONAL, TRIANGULAR }; // Тип квадратной матрицы: 1. Обычный двумерный массив размером n x n; 2. Диагональная матрица (на основе одномерного массива)
 	enum outputStyle { LINEBYLINE, BYCOLUMNS, ONEDIMENARR }; // Выбор способа вывода матрицы: 1)Построчно; 2)По столбцам; 3)В виде одномерного массива
 
 	struct matrix

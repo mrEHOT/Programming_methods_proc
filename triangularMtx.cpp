@@ -7,22 +7,60 @@ namespace simple_matrix
 		int count = 0; // Переменная для хранения номера элемента под вывод
 
 		ofst << "It is Triangular matrix. Matrix side size: " << mtx->sideSize << endl;
-		for (int row = 0; row < mtx->sideSize; row++)
+
+		switch (mtx->style)
 		{
+		case 0:
+			ofst << "Matrix output style - \"Line by line\" " << endl;
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				for (int col = 0; col < mtx->sideSize; col++)
+				{
+					if (col < row + 1)
+					{
+						ofst << mtx->currentMtx[count] << "\t";
+						count++;
+					} // Если номер столбца меньше, чем номер строчки+1, то надо вывести число из  массива (в 0 строке - 1 ненулевой элемент, в 1 - 2 ненулевых и т.д.)
+					else
+					{
+						ofst << "0" << "\t";
+					}
+				}
+				ofst << endl;
+			}
+			break;
+		case 1:
+			ofst << "Matrix output style - \"Output by columns\" " << endl;
 			for (int col = 0; col < mtx->sideSize; col++)
 			{
-				if (col < row + 1)
+				for (int row = 0; row < mtx->sideSize; row++)
 				{
-					ofst << mtx->currentMtx[count] << "\t";
-					count++;
-				} // Если номер столбца меньше, чем номер строчки+1, то надо вывести число из  массива (в 0 строке - 1 ненулевой элемент, в 1 - 2 ненулевых и т.д.)
-				else
-				{
-					ofst << "0" << "\t";
+					if (row >= col)
+					{
+						ofst << mtx->currentMtx[count] << "\t";
+						count++;
+					} // Если номер столбца меньше, чем номер строчки+1, то надо вывести число из  массива (в 0 строке - 1 ненулевой элемент, в 1 - 2 ненулевых и т.д.)
+					else
+					{
+						ofst << "0" << "\t";
+					}
 				}
+				ofst << endl;
 			}
-			ofst << endl;
+			break;
+		case 2:
+			ofst << "Matrix output style - \"Output to a one-dimensional array\" " << endl;
+			ofst << "[ ";
+			for (int col = 0; col < mtx->currentMtxSize; col++)
+			{
+				ofst << mtx->currentMtx[col] << " ";
+			}
+			ofst << "]" << endl << endl;
+			break;
+		default:
+			break;
 		}
+
 		ofst << endl;
 	}
 
@@ -54,8 +92,8 @@ namespace simple_matrix
 		check = (1 + mtx->sideSize) * mtx->sideSize / 2; // Определяем количество элементов, необходимое для заполнения нижнего треугольника (сумма членов арифметической прогрессии)
 		if (count == check)
 		{
+			mtx->currentMtxSize = count;
 			mtx->currentMtx = new int[count]; // Создаем новый динамический массив под хранение элементов
-
 
 			while ((pos = content.find(delimiter)) != string::npos)
 			{
