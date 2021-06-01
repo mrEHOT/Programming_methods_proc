@@ -15,7 +15,7 @@ namespace simple_matrix
 
 	void Init(struct container* cont); // »нициализаци€ контейнера
 	void Clear(struct container* cont); // ќчистка контейнера и его установка в начальное состо€ние
-	void Input(struct container* cont, ifstream& ifst); // ¬вод содержимого контейнера из указанного потока
+	bool Input(struct container* cont, ifstream& ifst); // ¬вод содержимого контейнера из указанного потока
 	void Output(struct container* cont, ofstream& ofst); //¬ывод содержимого контейнера в указанный поток
 } // end namespace simple_matrix
 //—труктура, описывающа€ двунаправленный кольцевой список, состо€щий из узлов (node)

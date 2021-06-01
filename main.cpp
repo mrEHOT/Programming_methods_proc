@@ -7,7 +7,7 @@ namespace simple_matrix
 	// Сигнатуры требуемых внешних функций
 	void Init(struct container* cont);
 	void Clear(struct container* cont);
-	void Input(struct container* cont, ifstream& ifst);
+	bool Input(struct container* cont, ifstream& ifst);
 	void Output(struct container* cont, ofstream& ofst);
 }
 using namespace simple_matrix;
@@ -39,16 +39,23 @@ int main(int argc, char* argv[])
 	container* cont = new container; // Создаем экземпляр контейнера
 	Init(cont); // Инициализируем контейнер
 
-	Input(cont, ifst); // Заполняем контейнер данными из потока
+	if (Input(cont, ifst))
+	{
+		cout << "Filled container. " << endl;
+		Output(cont, ofst); // Вывод заполненного контейнера
 
-	cout << "Filled container. " << endl;
-	Output(cont, ofst); // Вывод заполненного контейнера
+		Clear(cont); //Очистка контейнера
+		cout << "Empty container. " << endl;
+		Output(cont, ofst); // Вывод пустого контейнера
 
-	Clear(cont); //Очистка контейнера
-	cout << "Empty container. " << endl;
-	Output(cont, ofst); // Вывод пустого контейнера
+		cout << "Stop" << endl;
 
-	cout << "Stop" << endl;
-
-	return 0;
+		return 0;
+	} // Если заполнение контейнера выполнено корректно, то программа выполняется до конца
+	else
+	{
+		Clear(cont); //Очистка контейнера
+		cout << "Input data error! Container filling stopped!" << endl;
+		return 1;
+	} // Экстренное завершение программы, ошибка при заполнении контейнера
 }
