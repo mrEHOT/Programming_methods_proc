@@ -1,7 +1,6 @@
 #include "matrix.h"
 namespace simple_matrix
 {
-
 	bool MtxCompare(matrix* firstMtx, matrix* secondMtx)
 	{
 		if (MtxSum(firstMtx) > MtxSum(secondMtx))
@@ -14,7 +13,6 @@ namespace simple_matrix
 		}
 	}
 
-
 	int MtxSum(matrix* mtx)
 	{
 		if (mtx->key == SQUARE)
@@ -26,8 +24,12 @@ namespace simple_matrix
 		{
 			return DiagonalSum((diagonalMtx*)mtx);
 		}
-	}
 
+		if (mtx->key == TRIANGULAR)
+		{
+			return TriangularSum((triangularMtx*)mtx);
+		}
+	}
 
 	matrix* MtxInput(ifstream& ifst)
 	{
@@ -101,7 +103,6 @@ namespace simple_matrix
 		return newMatrix;
 	}
 
-
 	bool MtxOutput(matrix* mtx, ofstream& ofst)
 	{
 		bool check = false;
@@ -136,7 +137,6 @@ namespace simple_matrix
 		}
 
 	}
-
 
 	void MtxClear(matrix* mtx)
 	{

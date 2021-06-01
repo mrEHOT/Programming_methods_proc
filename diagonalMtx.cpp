@@ -20,7 +20,7 @@ namespace simple_matrix
 
 	void DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst)
 	{
-		ofst << "It is Diagonal matrix. Matrix side size: " << mtx->sideSize << endl;
+		ofst << "It is Diagonal matrix. Matrix side size: " << mtx->sideSize << ". The sum of the elements of the matrix: " << mtx->sum << endl;
 
 		switch (mtx->style)
 		{

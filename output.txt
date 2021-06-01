@@ -1,9 +1,10 @@
 Container contains 5 elements.
-It is Square matrix. Matrix side size: 6
-Matrix output style - "Output to a one-dimensional array" 
-[ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ]
+It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 4
+Matrix output style - "Output by columns" 
+12	-99	
+-9	100	
 
-It is Diagonal matrix. Matrix side size: 7
+It is Diagonal matrix. Matrix side size: 7. The sum of the elements of the matrix: 28
 Matrix output style - "Line by line" 
 1	0	0	0	0	0	0	
 0	2	0	0	0	0	0	
@@ -13,20 +14,19 @@ Matrix output style - "Line by line"
 0	0	0	0	0	6	0	
 0	0	0	0	0	0	7	
 
-It is Square matrix. Matrix side size: 2
-Matrix output style - "Output by columns" 
-12	-99	
--9	100	
+It is Square matrix. Matrix side size: 6. The sum of the elements of the matrix: 36
+Matrix output style - "Output to a one-dimensional array" 
+[ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ]
 
-It is Triangular matrix. Matrix side size: 3
+It is Triangular matrix. Matrix side size: 2. The sum of the elements of the matrix: 120
+Matrix output style - "Line by line" 
+-9	0	
+99	30	
+
+It is Triangular matrix. Matrix side size: 3. The sum of the elements of the matrix: 1005
 Matrix output style - "Output by columns" 
 3	5	100	
 0	0	1001	
 0	0	-104	
-
-It is Triangular matrix. Matrix side size: 2
-Matrix output style - "Line by line" 
--9	0	
-99	30	
 
 Container contains 0 elements.

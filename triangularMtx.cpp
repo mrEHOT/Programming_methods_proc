@@ -1,12 +1,30 @@
 #include "triangularMtx.h"
 namespace simple_matrix
 {
+	// Посчитать сумму элементов в нижней треугольной матрице
+	int TriangularSum(struct triangularMtx* mtx)
+	{
+		if (!mtx->sumMarker)
+		{
+			for (int row = 0; row < mtx->currentMtxSize; row++)
+			{
+				mtx->sum += mtx->currentMtx[row];
+			}
+			mtx->sumMarker = true;
+			return mtx->sum;
+		}
+		else
+		{
+			return mtx->sum;
+		}
+	}
+
 	// Вывод нижней треугольной матрицы в поток
 	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst)
 	{
 		int count = 0; // Переменная для хранения номера элемента под вывод
 
-		ofst << "It is Triangular matrix. Matrix side size: " << mtx->sideSize << endl;
+		ofst << "It is Triangular matrix. Matrix side size: " << mtx->sideSize << ". The sum of the elements of the matrix: " << mtx->sum << endl;
 
 		switch (mtx->style)
 		{

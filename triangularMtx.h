@@ -18,8 +18,11 @@ namespace simple_matrix
 		outputStyle style; // Способ вывода
 		int* currentMtx; // Динамический массив для хранения объектов типа int
 		int currentMtxSize; // Количество элементов в массиве
+		int sum = 0; // Сумма элементов матрицы
+		bool sumMarker = false; // Поле, фиксирующее, что сумма уже была рассчитана
 	};
 
+	int TriangularSum(struct triangularMtx* mtx); // Посчитать сумму элементов в квадратной матрице
 	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst); // Вывод нижней треугольной матрицы в поток
 	triangularMtx* TriangularInput(ifstream& ifst); // Ввод нижней треугольной матрицы на основании данных из потока
 	void TriangularClear(struct triangularMtx* mtx); // Очистка памяти

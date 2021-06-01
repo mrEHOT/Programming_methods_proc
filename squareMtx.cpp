@@ -23,7 +23,7 @@ namespace simple_matrix
 
 	void SquareOutput(struct squareMtx* mtx, ofstream& ofst)
 	{
-		ofst << "It is Square matrix. Matrix side size: " << mtx->sideSize << endl;
+		ofst << "It is Square matrix. Matrix side size: " << mtx->sideSize << ". The sum of the elements of the matrix: " << mtx->sum << endl;
 
 		switch (mtx->style)
 		{
@@ -104,7 +104,6 @@ namespace simple_matrix
 
 		return mtx;
 	}
-
 
 	void SquareClear(struct squareMtx* mtx)
 	{
