@@ -1,13 +1,9 @@
 Container contains 3 elements.
-It is Square matrix. Matrix side size: 6
-1	1	1	1	1	1	
-1	1	1	1	1	1	
-1	1	1	1	1	1	
-1	1	1	1	1	1	
-1	1	1	1	1	1	
-1	1	1	1	1	1	
+It is Square matrix. Matrix side size: 2. Sum of matrix elements: 4
+12	-9	
+-99	100	
 
-It is Diagonal matrix. Matrix side size: 7
+It is Diagonal matrix. Matrix side size: 7. Sum of matrix elements: 28
 1	0	0	0	0	0	0	
 0	2	0	0	0	0	0	
 0	0	3	0	0	0	0	
@@ -16,8 +12,12 @@ It is Diagonal matrix. Matrix side size: 7
 0	0	0	0	0	6	0	
 0	0	0	0	0	0	7	
 
-It is Square matrix. Matrix side size: 2
-12	-9	
--99	100	
+It is Square matrix. Matrix side size: 6. Sum of matrix elements: 36
+1	1	1	1	1	1	
+1	1	1	1	1	1	
+1	1	1	1	1	1	
+1	1	1	1	1	1	
+1	1	1	1	1	1	
+1	1	1	1	1	1	
 
 Container contains 0 elements.

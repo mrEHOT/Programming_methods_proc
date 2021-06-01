@@ -2,6 +2,19 @@
 namespace simple_matrix
 {
 
+	bool MtxCompare(matrix* firstMtx, matrix* secondMtx)
+	{
+		if (MtxSum(firstMtx) > MtxSum(secondMtx))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
 	int MtxSum(matrix* mtx)
 	{
 		if (mtx->key == SQUARE)

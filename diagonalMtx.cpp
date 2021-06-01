@@ -22,7 +22,7 @@ namespace simple_matrix
 	// Вывод диагональной матрицы в поток
 	void DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst)
 	{
-		ofst << "It is Diagonal matrix. Matrix side size: " << mtx->sideSize << endl;
+		ofst << "It is Diagonal matrix. Matrix side size: " << mtx->sideSize << ". Sum of matrix elements: " << mtx->sum << endl;
 		for (int row = 0; row < mtx->sideSize; row++)
 		{
 			for (int col = 0; col < mtx->sideSize; col++)

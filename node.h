@@ -17,6 +17,9 @@ namespace simple_matrix
 		node* prev; // Указатель на предыдущий элемент списка
 	};
 
+	void NodeCompare(struct node* head, int size); // Функция сравнения узлов списка
+	node* GetNode(struct node* head, int pos); // Возвращает узел с сответсвующим номером (позицией)
+	void NodeSwap(struct node* head, int first, int second); // Меняет местами два узла с соответствующими номерами
 	bool NodeAdd(struct container* cont, ifstream& ifst); // Добавление нового узла на основании данных из потока
 	void NodeRemove(struct node* head, int pos); // Удаление узла с номером (pos - 1) из списка
 	bool NodeOutput(struct node* head, int pos, ofstream& ofst); // Вывод узла в поток

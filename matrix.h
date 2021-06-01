@@ -18,6 +18,7 @@ namespace simple_matrix
 		long sideSize; // Размер стороны
 	};
 
+	bool MtxCompare(matrix* firstMtx, matrix* secondMtx); // Сравнение двух матриц
 	int MtxSum(matrix* mtx); //Посчитать сумму элементов в матрице
 	matrix* MtxInput(ifstream& ifst); // Добавление новой квадратной матрицы на основании данных из потока
 	bool MtxOutput(matrix* mtx, ofstream& ofst); // Вывод информации о квадратной матрице в поток

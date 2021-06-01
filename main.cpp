@@ -5,6 +5,7 @@ using namespace std;
 namespace simple_matrix
 {
 	// Сигнатуры требуемых внешних функций
+	void Sort(struct container* cont);
 	void Init(struct container* cont);
 	void Clear(struct container* cont);
 	void Input(struct container* cont, ifstream& ifst);
@@ -41,6 +42,7 @@ int main(int argc, char* argv[])
 
 	Input(cont, ifst); // Заполняем контейнер данными из потока
 
+	Sort(cont); // Сортируем контейнер по возрастанию
 	cout << "Filled container. " << endl;
 	Output(cont, ofst); // Вывод заполненного контейнера
 
