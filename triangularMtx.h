@@ -10,21 +10,21 @@ namespace simple_matrix
 	enum type;
 	enum outputStyle;
 
-	// Структура, характеризующая нижние треугольные матрицы
+	
 	struct triangularMtx
 	{
 		type key;
-		long sideSize; // Размер стороны матрицы
-		outputStyle style; // Способ вывода
-		int* currentMtx; // Динамический массив для хранения объектов типа int
-		int currentMtxSize; // Количество элементов в массиве
-		int sum = 0; // Сумма элементов матрицы
-		bool sumMarker = false; // Поле, фиксирующее, что сумма уже была рассчитана
+		long sideSize;
+		outputStyle style;
+		int* currentMtx;
+		int currentMtxSize;
+		int sum = 0;
+		bool sumMarker = false;
 	};
 
-	int TriangularSum(struct triangularMtx* mtx); // Посчитать сумму элементов в квадратной матрице
-	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst); // Вывод нижней треугольной матрицы в поток
-	triangularMtx* TriangularInput(ifstream& ifst); // Ввод нижней треугольной матрицы на основании данных из потока
-	void TriangularClear(struct triangularMtx* mtx); // Очистка памяти
+	int TriangularSum(struct triangularMtx* mtx);
+	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst);
+	triangularMtx* TriangularInput(ifstream& ifst);
+	void TriangularClear(struct triangularMtx* mtx);
 } // end namesapce simple_matrix
 #endif // !triangularMtx_definition

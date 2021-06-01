@@ -41,4 +41,13 @@ It is Square matrix. Matrix side size: 6. The sum of the elements of the matrix:
 Matrix output style - "Output to a one-dimensional array" 
 [ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ]
 
+It is Triangular matrix. Matrix side size: 3
+3	0	0	
+5	100	0	
+0	1001	-104	
+
+It is Triangular matrix. Matrix side size: 2
+-9	0	
+99	30	
+
 Container contains 0 elements.
