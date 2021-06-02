@@ -79,8 +79,6 @@ namespace simple_matrix
 
 		squareMtx* mtx = new squareMtx;
 
-#pragma region Matrix Side Size validation 
-
 		ifst >> content;
 		for (int i = 0; i < content.size(); i++)
 		{
@@ -99,7 +97,6 @@ namespace simple_matrix
 			content = "";
 			col = 1;
 		}
-#pragma endregion
 
 		if ((mtx->sideSize <= 1) || (mtx->sideSize > 10))
 		{
@@ -132,6 +129,13 @@ namespace simple_matrix
 					{
 						part = content.substr(0, pos);
 						mtx->currentMtx[row][col] = atoi(part.c_str());
+						string str = to_string(mtx->currentMtx[row][col]);
+						if (part != str)
+						{
+							cout << "Cast error, number cannot be cast to int!" << endl;
+							SquareClear(mtx);
+							return NULL;
+						}
 						col++;
 						content.erase(0, pos + delimiter.length());
 					}

@@ -119,6 +119,13 @@ namespace simple_matrix
 				{
 					part = content.substr(0, pos);
 					mtx->currentMtx[col] = atoi(part.c_str());
+					string str = to_string(mtx->currentMtx[col]);
+					if (part != str)
+					{
+						cout << "Cast error, number cannot be cast to int!" << endl;
+						TriangularClear(mtx);
+						return NULL;
+					}
 					col++;
 					content.erase(0, pos + delimiter.length());
 				}
