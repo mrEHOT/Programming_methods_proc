@@ -1,0 +1,18 @@
+--------------------------------
+Filtered Output - Square matrix:
+--------------------------------
+
+It is Square matrix. Matrix side size: 3. The sum of the elements of the matrix: 32
+Matrix output style - "Line by line" 
+1	2	3	
+2	1	4	
+5	6	8	
+
+It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 28
+Matrix output style - "Output by columns" 
+-2	50	
+-20	0	
+
+It is Square matrix. Matrix side size: 3. The sum of the elements of the matrix: 13
+Matrix output style - "Output to a one-dimensional array" 
+[ 1 1 1 1 1 1 1 1 5 ]

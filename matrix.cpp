@@ -49,6 +49,7 @@ namespace simple_matrix
 				if (MtxStyleSet(newMatrix, style))
 				{
 					newMatrix->key = SQUARE;
+					MtxSum(newMatrix);
 					break;
 				}
 				else
@@ -67,6 +68,7 @@ namespace simple_matrix
 				if (MtxStyleSet(newMatrix, style))
 				{
 					newMatrix->key = DIAGONAL;
+					MtxSum(newMatrix);
 					break;
 				}
 				else
@@ -85,6 +87,7 @@ namespace simple_matrix
 				if (MtxStyleSet(newMatrix, style))
 				{
 					newMatrix->key = TRIANGULAR;
+					MtxSum(newMatrix);
 					break;
 				}
 				else

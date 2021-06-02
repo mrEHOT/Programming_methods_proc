@@ -71,7 +71,7 @@ namespace simple_matrix
 			{
 				ofst << mtx->currentMtx[col] << " ";
 			}
-			ofst << "]" << endl << endl;
+			ofst << "]" << endl;
 			break;
 		default:
 			break;
