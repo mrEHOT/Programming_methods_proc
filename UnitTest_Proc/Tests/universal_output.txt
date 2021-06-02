@@ -42,3 +42,4 @@ Matrix output style - "Output by columns"
 0	1	4	
 0	0	100	
 
+Container contains 0 elements.

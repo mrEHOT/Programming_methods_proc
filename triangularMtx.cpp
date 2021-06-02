@@ -5,7 +5,7 @@ namespace simple_matrix
 	{
 		if (!mtx->sumMarker)
 		{
-			for (int row = 0; row < mtx->currentMtxSize; row++)
+			for (int row = 0; row < mtx->numberOfElements; row++)
 			{
 				mtx->sum += mtx->currentMtx[row];
 			}
@@ -18,7 +18,7 @@ namespace simple_matrix
 		}
 	}
 
-	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst)
+	bool TriangularOutput(struct triangularMtx* mtx, ofstream& ofst)
 	{
 		int count = 0;
 
@@ -28,12 +28,12 @@ namespace simple_matrix
 		{
 		case 0:
 			ofst << "Matrix output style - \"Line by line\" " << endl;
-		for (int row = 0; row < mtx->sideSize; row++)
-		{
-			for (int col = 0; col < mtx->sideSize; col++)
+			for (int row = 0; row < mtx->sideSize; row++)
 			{
-				if (col < row + 1)
+				for (int col = 0; col < mtx->sideSize; col++)
 				{
+					if (col < row + 1)
+					{
 						ofst << mtx->currentMtx[count] << "\t";
 						count++;
 					}
@@ -53,75 +53,80 @@ namespace simple_matrix
 				{
 					if (row >= col)
 					{
-					ofst << mtx->currentMtx[count] << "\t";
-					count++;
+						ofst << mtx->currentMtx[count] << "\t";
+						count++;
+					}
+					else
+					{
+						ofst << "0" << "\t";
+					}
 				}
-				else
-				{
-					ofst << "0" << "\t";
-				}
+				ofst << endl;
 			}
-			ofst << endl;
-		}
 			break;
 		case 2:
 			ofst << "Matrix output style - \"Output to a one-dimensional array\" " << endl;
 			ofst << "[ ";
-			for (int col = 0; col < mtx->currentMtxSize; col++)
+			for (int col = 0; col < mtx->numberOfElements; col++)
 			{
 				ofst << mtx->currentMtx[col] << " ";
 			}
 			ofst << "]" << endl;
 			break;
 		default:
-			break;
+			return false;
 		}
 
 		ofst << endl;
+		return true;
 	}
 
 	triangularMtx* TriangularInput(ifstream& ifst)
 	{
 		string content = "";
 		string delimiter = ",";
-		string part = ""; 
+		string part = "";
 		size_t pos = 0;
 		int col = 0;
-		int count = 1;
 		int check = 0;
 
 		triangularMtx* mtx = new triangularMtx;
 
 		ifst >> content;
-
+		mtx->numberOfElements = 1;
 		for (int i = 0; i < content.size(); i++)
 		{
 			if (content[i] == ',')
 			{
-				count++;
+				mtx->numberOfElements++;
 			}
 		}
 
-		mtx->sideSize = (long)sqrt(count) + 1;
-
+		mtx->sideSize = (long)sqrt(mtx->numberOfElements) + 1;
 		check = (1 + mtx->sideSize) * mtx->sideSize / 2;
-		if (count == check)
+
+		if (mtx->numberOfElements == check)
 		{
-			mtx->currentMtxSize = count;
-			mtx->currentMtx = new int[count];
-
-
-			while ((pos = content.find(delimiter)) != string::npos)
+			if ((mtx->numberOfElements <= 1) || (mtx->numberOfElements > 55))
 			{
-				part = content.substr(0, pos);
-				mtx->currentMtx[col] = atoi(part.c_str());
-				col++;
-				content.erase(0, pos + delimiter.length());
+				return NULL;
 			}
+			else
+			{
+				mtx->currentMtx = new int[mtx->numberOfElements];
 
-			mtx->currentMtx[col] = atoi(content.c_str());
+				while ((pos = content.find(delimiter)) != string::npos)
+				{
+					part = content.substr(0, pos);
+					mtx->currentMtx[col] = atoi(part.c_str());
+					col++;
+					content.erase(0, pos + delimiter.length());
+				}
 
-			return mtx;
+				mtx->currentMtx[col] = atoi(content.c_str());
+
+				return mtx;
+			}
 		}
 		else
 		{

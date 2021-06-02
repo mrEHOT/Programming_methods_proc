@@ -1,57 +1,19 @@
-Container contains 6 elements.
-It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 4
+Container contains 2 elements.
+It is Diagonal matrix. Matrix side size: 3. The sum of the elements of the matrix: 6
 Matrix output style - "Line by line" 
-12	-9	
--99	100	
+1	0	0	
+0	2	0	
+0	0	3	
 
-It is Diagonal matrix. Matrix side size: 7. The sum of the elements of the matrix: 28
+It is Diagonal matrix. Matrix side size: 4. The sum of the elements of the matrix: 187
 Matrix output style - "Line by line" 
-1	0	0	0	0	0	0	
-0	2	0	0	0	0	0	
-0	0	3	0	0	0	0	
-0	0	0	4	0	0	0	
-0	0	0	0	5	0	0	
-0	0	0	0	0	6	0	
-0	0	0	0	0	0	7	
-
-It is Triangular matrix. Matrix side size: 2. The sum of the elements of the matrix: 120
-Matrix output style - "Line by line" 
--9	0	
-99	30	
-
-It is Triangular matrix. Matrix side size: 3. The sum of the elements of the matrix: 128
-Matrix output style - "Line by line" 
-99	0	0	
-10	-10	0	
-22	3	4	
-
-It is Triangular matrix. Matrix side size: 3. The sum of the elements of the matrix: 1005
-Matrix output style - "Output by columns" 
-3	5	100	
-0	0	1001	
-0	0	-104	
-
-It is Square matrix. Matrix side size: 4. The sum of the elements of the matrix: 8966
-Matrix output style - "Output by columns" 
-1	4	7	-100	
-2	5	8	-1000	
-3	6	9	10000	
-4	7	10	0	
+4	0	0	0	
+0	6	0	0	
+0	0	78	0	
+0	0	0	99	
 
 --------------------------------
 Filtered Output - Square matrix:
 --------------------------------
-
-It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 4
-Matrix output style - "Line by line" 
-12	-9	
--99	100	
-
-It is Square matrix. Matrix side size: 4. The sum of the elements of the matrix: 8966
-Matrix output style - "Output by columns" 
-1	4	7	-100	
-2	5	8	-1000	
-3	6	9	10000	
-4	7	10	0	
 
 Container contains 0 elements.

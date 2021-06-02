@@ -22,7 +22,7 @@ namespace simple_matrix
 	};
 
 	int SquareSum(struct squareMtx* mtx); // Посчитать сумму элементов в квадратной матрице
-	void SquareOutput(struct squareMtx* mtx, ofstream& ofst); // Вывод стандартной матрицы в поток
+	bool SquareOutput(struct squareMtx* mtx, ofstream& ofst); // Вывод стандартной матрицы в поток
 	squareMtx* SquareInput(ifstream& ifst); // Ввод стандартной матрицы на основании данных из потока
 	void SquareClear(struct squareMtx* mtx); // Очистка памяти
 } // end namesapce simple_matrix

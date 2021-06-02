@@ -22,7 +22,7 @@ namespace simple_matrix
 	};
 
 	int DiagonalSum(struct diagonalMtx* mtx); // Посчитать сумму элементов в квадратной матрице
-	void DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst); // Вывод диагональной матрицы в поток
+	bool DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst); // Вывод диагональной матрицы в поток
 	diagonalMtx* DiagonalInput(ifstream& ifst); // Ввод диагональной матрицы на основании данных из потока
 	void DiagonalClear(struct diagonalMtx* mtx); // Очистка памяти
 } // end namesapce simple_matrix

@@ -74,7 +74,10 @@ namespace simple_matrix
 		ofst << "--------------------------------" << endl << endl;
 		for (int i = 0; i < cont->size; i++)
 		{
-			FilteredNodeOutput(cont->head, i, ofst);
+			if (!FilteredNodeOutput(cont->head, i, ofst))
+			{
+				cout << "Node with square matrix is broken!" << endl; // ¬ывод сообщени€ о невозможности вывода элемента
+			}
 		} // ѕоочередный вывод стандартных квадратных матриц из контейнера в поток
 	}
 } //end namespace simple_matrix

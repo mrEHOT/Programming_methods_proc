@@ -40,8 +40,8 @@ namespace simple_matrix
 	// Добавление нового узла на основании данных из потока
 	bool NodeAdd(struct container* cont, ifstream& ifst)
 	{
-		node* newNode = new node(); // Инициализируем новый объект node при помощи конструктора поумолчанию
-		newNode->mtx = MtxInput(ifst); // Устанавливаем указатель на объект типа matrix
+		node* newNode = new node(); // Инициализируем новый объект node при помощи конструктора по умолчанию
+		newNode->mtx = MtxInput(ifst); // Устанавливаем указатель на объект типа matrix (и инициализируем его при помощи данных из потока)
 
 		if (newNode->mtx != NULL)
 		{
@@ -107,7 +107,7 @@ namespace simple_matrix
 	}
 
 	// Выборочный вывод узлов в поток
-	void FilteredNodeOutput(struct node* head, int pos, ofstream& ofst)
+	bool FilteredNodeOutput(struct node* head, int pos, ofstream& ofst)
 	{
 		node* currNode = head; // Устанавливаем указатель текущей позиции на "голову" списка
 
@@ -116,6 +116,13 @@ namespace simple_matrix
 			currNode = currNode->next;
 		} // Выполняем прямой обход списка пока не найдем элемент с нужным номером
 
-		FilteredMtxOutput(currNode->mtx, ofst);
+		if (FilteredMtxOutput(currNode->mtx, ofst))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 } // end namespace simple_matrix

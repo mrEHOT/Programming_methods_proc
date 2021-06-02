@@ -18,7 +18,7 @@ namespace simple_matrix
 		}
 	}
 
-	void DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst)
+	bool DiagonalOutput(struct diagonalMtx* mtx, ofstream& ofst)
 	{
 		ofst << "It is Diagonal matrix. Matrix side size: " << mtx->sideSize << ". The sum of the elements of the matrix: " << mtx->sum << endl;
 
@@ -70,10 +70,11 @@ namespace simple_matrix
 			ofst << "]" << endl;
 			break;
 		default:
-			break;
+			return false;
 		}
 
 		ofst << endl;
+		return true;
 	}
 
 	diagonalMtx* DiagonalInput(ifstream& ifst)
@@ -86,21 +87,37 @@ namespace simple_matrix
 
 		diagonalMtx* mtx = new diagonalMtx;
 
-		ifst >> mtx->sideSize >> content;
-		mtx->currentMtx = new int[mtx->sideSize];
-
-
-		while ((pos = content.find(delimiter)) != string::npos)
+		ifst >> content;
+		mtx->sideSize = 1;
+		for (int i = 0; i < content.size(); i++)
 		{
-			part = content.substr(0, pos);
-			mtx->currentMtx[col] = atoi(part.c_str());
-			col++;
-			content.erase(0, pos + delimiter.length());
+			if (content[i] == ',')
+			{
+				mtx->sideSize++;
+			}
 		}
 
-		mtx->currentMtx[col] = atoi(content.c_str());
+		if ((mtx->sideSize <= 1) || (mtx->sideSize > 10))
+		{
+			return NULL;
+		} // ¬озвращани NULL в случае если размер стороны матрицы не попадает в диапазон
+		else
+		{
+			mtx->currentMtx = new int[mtx->sideSize];
 
-		return mtx;
+			while ((pos = content.find(delimiter)) != string::npos)
+			{
+				part = content.substr(0, pos);
+				mtx->currentMtx[col] = atoi(part.c_str());
+				col++;
+				content.erase(0, pos + delimiter.length());
+			}
+
+			mtx->currentMtx[col] = atoi(content.c_str());
+
+			return mtx;
+		} // ќсуществл€ем корректное заполнение матрицы
+
 	}
 
 	void DiagonalClear(struct diagonalMtx* mtx)

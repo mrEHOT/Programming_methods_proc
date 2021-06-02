@@ -21,7 +21,7 @@ namespace simple_matrix
 		}
 	}
 
-	void SquareOutput(struct squareMtx* mtx, ofstream& ofst)
+	bool SquareOutput(struct squareMtx* mtx, ofstream& ofst)
 	{
 		ofst << "It is Square matrix. Matrix side size: " << mtx->sideSize << ". The sum of the elements of the matrix: " << mtx->sum << endl;
 
@@ -62,10 +62,11 @@ namespace simple_matrix
 			ofst << "]" << endl;
 			break;
 		default:
-			break;
+			return false;
 		}
 
 		ofst << endl;
+		return true;
 	}
 
 	squareMtx* SquareInput(ifstream& ifst)
@@ -78,31 +79,75 @@ namespace simple_matrix
 
 		squareMtx* mtx = new squareMtx;
 
-		ifst >> mtx->sideSize;
-		mtx->currentMtx = new int* [mtx->sideSize];
-		for (int row = 0; row < mtx->sideSize; row++)
-		{
-			mtx->currentMtx[row] = new int[mtx->sideSize];
-		}
+#pragma region Matrix Side Size validation 
 
-		for (int row = 0; row < mtx->sideSize; row++)
+		ifst >> content;
+		for (int i = 0; i < content.size(); i++)
 		{
-			ifst >> content;
-
-			while ((pos = content.find(delimiter)) != string::npos)
+			if (content[i] == ',')
 			{
-				part = content.substr(0, pos);
-				mtx->currentMtx[row][col] = atoi(part.c_str());
 				col++;
-				content.erase(0, pos + delimiter.length());
+			}
+		}
+		if (col != 0)
+		{
+			return NULL;
+		}
+		else
+		{
+			mtx->sideSize = atoi(content.c_str());
+			content = "";
+			col = 1;
+		}
+#pragma endregion
+
+		if ((mtx->sideSize <= 1) || (mtx->sideSize > 10))
+		{
+			return NULL;
+		} // Возвращани NULL в случае если размер стороны матрицы не попадает в диапазон
+		else
+		{
+			mtx->currentMtx = new int* [mtx->sideSize];
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				mtx->currentMtx[row] = new int[mtx->sideSize];
 			}
 
-			mtx->currentMtx[row][col] = atoi(content.c_str());
-			content = "";
-			col = 0;
-		}
+			for (int row = 0; row < mtx->sideSize; row++)
+			{
+				ifst >> content;
+				for (int i = 0; i < content.size(); i++)
+				{
+					if (content[i] == ',')
+					{
+						col++;
+					}
+				}
 
-		return mtx;
+				if (col == mtx->sideSize)
+				{
+					col = 0;
+
+					while ((pos = content.find(delimiter)) != string::npos)
+					{
+						part = content.substr(0, pos);
+						mtx->currentMtx[row][col] = atoi(part.c_str());
+						col++;
+						content.erase(0, pos + delimiter.length());
+					}
+
+					mtx->currentMtx[row][col] = atoi(content.c_str());
+					content = "";
+					col = 1;
+				}
+				else
+				{
+					SquareClear(mtx);
+					return NULL;
+				}
+			}
+			return mtx;
+		} // Выполняется, если желаемый размер попадает в диапазон
 	}
 
 	void SquareClear(struct squareMtx* mtx)

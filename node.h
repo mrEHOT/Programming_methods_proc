@@ -19,7 +19,7 @@ namespace simple_matrix
 	void NodeCompare(struct node* head, int size);
 	node* GetNode(struct node* head, int pos);
 	void NodeSwap(struct node* head, int first, int second);
-	void FilteredNodeOutput(struct node* head, int pos, ofstream& ofst);
+	bool FilteredNodeOutput(struct node* head, int pos, ofstream& ofst);
 	bool NodeAdd(struct container* cont, ifstream& ifst);
 	void NodeRemove(struct node* head, int pos);
 	bool NodeOutput(struct node* head, int pos, ofstream& ofst);

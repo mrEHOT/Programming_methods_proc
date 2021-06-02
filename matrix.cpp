@@ -1,4 +1,5 @@
 #include "matrix.h"
+
 namespace simple_matrix
 {
 	bool MtxCompare(matrix* firstMtx, matrix* secondMtx)
@@ -34,11 +35,45 @@ namespace simple_matrix
 	matrix* MtxInput(ifstream& ifst)
 	{
 		matrix* newMatrix;
-		int currKey;
-		int style = -1;
+		int currKey = 0;
+		int style = 0;
+		string content = "";
 
-		ifst >> currKey;
-		ifst >> style;
+		ifst >> content;
+		for (int i = 0; i < content.size(); i++)
+		{
+			if (content[i] == ',')
+			{
+				currKey++;
+			}
+		}
+		if (currKey != 0)
+		{
+			return NULL;
+		}
+		else
+		{
+			currKey = atoi(content.c_str());
+			content = "";
+		}
+
+		ifst >> content;
+		for (int i = 0; i < content.size(); i++)
+		{
+			if (content[i] == ',')
+			{
+				style++;
+			}
+		}
+		if (style != 0)
+		{
+			return NULL;
+		}
+		else
+		{
+			style = atoi(content.c_str());
+			content = "";
+		}
 
 		switch (currKey)
 		{
@@ -114,20 +149,17 @@ namespace simple_matrix
 		{
 			if (mtx->key == SQUARE)
 			{
-				SquareOutput((squareMtx*)mtx, ofst);
-				return true;
+				return SquareOutput((squareMtx*)mtx, ofst);
 			}
 
 			if (mtx->key == DIAGONAL)
 			{
-				DiagonalOutput((diagonalMtx*)mtx, ofst);
-				return true;
+				return DiagonalOutput((diagonalMtx*)mtx, ofst);
 			}
 
 			if (mtx->key == TRIANGULAR)
 			{
-				TriangularOutput((triangularMtx*)mtx, ofst);
-				return true;
+				return TriangularOutput((triangularMtx*)mtx, ofst);
 			}
 
 			check = true;
@@ -138,7 +170,6 @@ namespace simple_matrix
 			ofst << "Incorrect matrix!" << endl;
 			return false;
 		}
-
 	}
 
 	void MtxClear(matrix* mtx)
@@ -178,11 +209,19 @@ namespace simple_matrix
 		return true;
 	}
 
-	void FilteredMtxOutput(matrix* mtx, ofstream& ofst)
+	bool FilteredMtxOutput(matrix* mtx, ofstream& ofst)
 	{
 		if (mtx->key == SQUARE)
 		{
-			SquareOutput((squareMtx*)mtx, ofst);
+			if (SquareOutput((squareMtx*)mtx, ofst))
+			{
+				return true;
+			}
+			else
+			{
+				ofst << "Incorrect square matrix!" << endl;
+				return false;
+			}
 		}
 	}
 } // end namesapce simple_matrix

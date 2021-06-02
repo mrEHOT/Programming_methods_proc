@@ -16,13 +16,13 @@ namespace simple_matrix
 		long sideSize;
 		outputStyle style;
 		int* currentMtx;
-		int currentMtxSize;
+		int numberOfElements;
 		int sum = 0;
 		bool sumMarker = false;
 	};
 
 	int TriangularSum(struct triangularMtx* mtx);
-	void TriangularOutput(struct triangularMtx* mtx, ofstream& ofst);
+	bool TriangularOutput(struct triangularMtx* mtx, ofstream& ofst);
 	triangularMtx* TriangularInput(ifstream& ifst);
 	void TriangularClear(struct triangularMtx* mtx);
 } // end namesapce simple_matrix
