@@ -4,7 +4,9 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+
 using namespace std;
+
 namespace simple_matrix
 {
 	enum type;

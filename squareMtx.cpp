@@ -1,4 +1,5 @@
 #include "squareMtx.h"
+
 namespace simple_matrix
 {
 	int SquareSum(struct squareMtx* mtx)
@@ -62,6 +63,7 @@ namespace simple_matrix
 			ofst << "]" << endl;
 			break;
 		default:
+			cout << "Square matrix output error! Incorrect output style!" << endl;
 			return false;
 		}
 
@@ -89,6 +91,7 @@ namespace simple_matrix
 		}
 		if (col != 0)
 		{
+			cout << "Input Square matrix error! Side size must be one digit!" << endl;
 			return NULL;
 		}
 		else
@@ -100,6 +103,7 @@ namespace simple_matrix
 
 		if ((mtx->sideSize <= 1) || (mtx->sideSize > 10))
 		{
+			cout << "Incorrect Square matrix size!Re-enter the side size!Recommended size : 2 to 10." << endl;
 			return NULL;
 		} // Возвращани NULL в случае если размер стороны матрицы не попадает в диапазон
 		else
@@ -132,7 +136,7 @@ namespace simple_matrix
 						string str = to_string(mtx->currentMtx[row][col]);
 						if (part != str)
 						{
-							cout << "Cast error, number cannot be cast to int!" << endl;
+							cout << "Square matrix cast error, number cannot be cast to int!" << endl;
 							SquareClear(mtx);
 							return NULL;
 						}
@@ -147,6 +151,7 @@ namespace simple_matrix
 				else
 				{
 					SquareClear(mtx);
+					cout << "Input Square matrix error! The number of items does not match the side size that was received!" << endl;
 					return NULL;
 				}
 			}

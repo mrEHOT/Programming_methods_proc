@@ -7,7 +7,9 @@
 #include "squareMtx.h"
 #include "diagonalMtx.h"
 #include "triangularMtx.h"
+
 using namespace std;
+
 namespace simple_matrix
 {
 	enum type { SQUARE, DIAGONAL, TRIANGULAR };

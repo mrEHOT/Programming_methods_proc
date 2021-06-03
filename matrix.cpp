@@ -49,6 +49,7 @@ namespace simple_matrix
 		}
 		if (currKey != 0)
 		{
+			cout << "Input Error! Matrix type must be one digit: 0 - Square, 1 - Diagonal, 3 - Triangular!" << endl;
 			return NULL;
 		}
 		else
@@ -67,6 +68,7 @@ namespace simple_matrix
 		}
 		if (style != 0)
 		{
+			cout << "Input Error! Output style must be one digit: 0 - Line by line, 1 - Output by columns, 3 - Output to a one-dimensional array!" << endl;
 			return NULL;
 		}
 		else
@@ -135,6 +137,7 @@ namespace simple_matrix
 				return NULL;
 			}
 		default:
+			cout << "The matrix type is undefined!" << endl;
 			return NULL;
 		}
 
@@ -167,7 +170,7 @@ namespace simple_matrix
 
 		if (check)
 		{
-			ofst << "Incorrect matrix!" << endl;
+			ofst << "Matrix output error. Undefined matrix type." << endl;
 			return false;
 		}
 	}
@@ -204,6 +207,7 @@ namespace simple_matrix
 			mtx->style = ONEDIMENARR;
 			break;
 		default:
+			cout << "Input Error! Unknown matrix output type!" << endl;
 			return false;
 		}
 		return true;
@@ -219,7 +223,7 @@ namespace simple_matrix
 			}
 			else
 			{
-				ofst << "Incorrect square matrix!" << endl;
+				ofst << "Square matrix output error! Incorrect square matrix!" << endl;
 				return false;
 			}
 		}

@@ -6,7 +6,9 @@
 #include <fstream>
 #include "matrix.h"
 #include "container.h"
+
 using namespace std;
+
 namespace simple_matrix
 {
 	struct node

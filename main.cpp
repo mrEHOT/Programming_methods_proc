@@ -31,15 +31,17 @@ int main(int argc, char* argv[])
 		cout << "Input file is not open!" << endl;
 		return 1;
 	} // Проверка открытия файла Input
-	else 
+	else
 	{
 		string content = "";
 		regex regular("^-?\\d+(,-?\\d+){0,}$");
+
 		while (!ifstCheck.eof())
 		{
 			string content = "";
+
 			getline(ifstCheck, content); // Считываем строку из исходного файла
-			if (!regex_match(content, regular)) 
+			if (!regex_match(content, regular))
 			{
 				cout << "Invalid input received! Please re-enter!" << endl;
 				return 1;

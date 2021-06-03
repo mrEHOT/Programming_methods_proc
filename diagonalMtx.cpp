@@ -1,4 +1,5 @@
 #include "diagonalMtx.h"
+
 namespace simple_matrix
 {
 	int DiagonalSum(struct diagonalMtx* mtx)
@@ -70,6 +71,7 @@ namespace simple_matrix
 			ofst << "]" << endl;
 			break;
 		default:
+			cout << "Diagonal matrix output error! Incorrect output style!" << endl;
 			return false;
 		}
 
@@ -99,6 +101,7 @@ namespace simple_matrix
 
 		if ((mtx->sideSize <= 1) || (mtx->sideSize > 10))
 		{
+			cout << "Incorrect diagonal matrix size! Re-enter items! Recommended amount: 2 to 10." << endl;
 			return NULL;
 		} // Возвращани NULL в случае если размер стороны матрицы не попадает в диапазон
 		else
@@ -113,7 +116,7 @@ namespace simple_matrix
 				string str = to_string(mtx->currentMtx[col]);
 				if (part != str)
 				{
-					cout << "Cast error, number cannot be cast to int!" << endl;
+					cout << "Diagonal matrix cast error, number cannot be cast to int!" << endl;
 					DiagonalClear(mtx);
 					return NULL;
 				}

@@ -1,4 +1,5 @@
 #include "node.h"
+
 namespace simple_matrix
 {
 	// Функция сравнения узлов списка
@@ -71,7 +72,6 @@ namespace simple_matrix
 		{
 			return false;
 		}
-
 	}
 
 	// Удаление узла с номером pos из списка
@@ -83,6 +83,7 @@ namespace simple_matrix
 		{
 			currNode = currNode->next;
 		} // Идем по списку до нахождения элемента списка с номером pos
+
 		MtxClear(currNode->mtx);
 		free(currNode); // Освобождаем область памяти, на которую указывает currNode
 	}

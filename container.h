@@ -4,7 +4,9 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+
 using namespace std;
+
 namespace simple_matrix
 {
 	struct container
@@ -12,6 +14,7 @@ namespace simple_matrix
 		long size;
 		struct node* head;
 	};
+
 	void Sort(struct container* cont);
 	void FilteredOutput(struct container* cont, ofstream& ofst);
 	void Init(struct container* cont);

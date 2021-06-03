@@ -46,6 +46,7 @@ namespace simple_matrix
 			} // Если операция добавления в список выполнена корректно => возврашается TRUE и увеличивается размер контейнера
 			else
 			{
+				cout << "Error adding node to container!" << endl;
 				return false;
 			} // Операция добавления в список не выполнена
 		} // Пока не достикнут конец потока
@@ -57,6 +58,7 @@ namespace simple_matrix
 	void Output(struct container* cont, ofstream& ofst)
 	{
 		ofst << "Container contains " << cont->size << " elements." << endl; // Выводим общее количество элементов в контейнере
+
 		for (int i = 0; i < cont->size; i++)
 		{
 			if (!NodeOutput(cont->head, i, ofst))
@@ -72,6 +74,7 @@ namespace simple_matrix
 		ofst << "--------------------------------" << endl;
 		ofst << "Filtered Output - Square matrix:" << endl;
 		ofst << "--------------------------------" << endl << endl;
+
 		for (int i = 0; i < cont->size; i++)
 		{
 			if (!FilteredNodeOutput(cont->head, i, ofst))
