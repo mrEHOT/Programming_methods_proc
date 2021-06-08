@@ -1,4 +1,4 @@
-Container contains 3 elements.
+Container contains 4 elements.
 It is Diagonal matrix. Matrix side size: 4. The sum of the elements of the matrix: -903
 Matrix output style - "Line by line" 
 -3	0	0	0	
@@ -6,24 +6,60 @@ Matrix output style - "Line by line"
 0	0	5	0	
 0	0	0	-909	
 
-It is Triangular matrix. Matrix side size: 3. The sum of the elements of the matrix: 120
+It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 850
 Matrix output style - "Output by columns" 
-0	0	0	
-0	0	100	
-0	0	20	
+29	-100	
+33	888	
+
+It is Square matrix. Matrix side size: 3. The sum of the elements of the matrix: 1341
+Matrix output style - "Line by line" 
+1	32	69	
+-100	888	440	
+2	4	5	
+
+It is Diagonal matrix. Matrix side size: 6. The sum of the elements of the matrix: -985
+Matrix output style - "Output to a one-dimensional array" 
+[ 1 2 3 4 5 -1000 ]
+
+Multimethod.
+
+Diagonal Matrix and Square Matrix
+
+It is Diagonal matrix. Matrix side size: 4. The sum of the elements of the matrix: -903
+Matrix output style - "Line by line" 
+-3	0	0	0	
+0	4	0	0	
+0	0	5	0	
+0	0	0	-909	
 
 It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 850
 Matrix output style - "Output by columns" 
 29	-100	
 33	888	
 
---------------------------------
-Filtered Output - Square matrix:
---------------------------------
+Square Matrix and Square Matrix
 
 It is Square matrix. Matrix side size: 2. The sum of the elements of the matrix: 850
 Matrix output style - "Output by columns" 
 29	-100	
 33	888	
+
+It is Square matrix. Matrix side size: 3. The sum of the elements of the matrix: 1341
+Matrix output style - "Line by line" 
+1	32	69	
+-100	888	440	
+2	4	5	
+
+Square Matrix and Diagonal Matrix
+
+It is Square matrix. Matrix side size: 3. The sum of the elements of the matrix: 1341
+Matrix output style - "Line by line" 
+1	32	69	
+-100	888	440	
+2	4	5	
+
+It is Diagonal matrix. Matrix side size: 6. The sum of the elements of the matrix: -985
+Matrix output style - "Output to a one-dimensional array" 
+[ 1 2 3 4 5 -1000 ]
 
 Container contains 0 elements.

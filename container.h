@@ -21,5 +21,6 @@ namespace simple_matrix
 	void Clear(struct container* cont);
 	bool Input(struct container* cont, ifstream& ifst);
 	void Output(struct container* cont, ofstream& ofst);
+	void MultiMethod(struct container* cont, ofstream& ofst);
 } // end namespace simple_matrix
 #endif // !container_definition

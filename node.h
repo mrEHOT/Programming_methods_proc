@@ -25,5 +25,6 @@ namespace simple_matrix
 	bool NodeAdd(struct container* cont, ifstream& ifst);
 	void NodeRemove(struct node* head, int pos);
 	bool NodeOutput(struct node* head, int pos, ofstream& ofst);
+	void MMNode(struct node* head, int pos, ofstream& ofst);
 } // end namespace simple_matrix
 #endif // !node_definition

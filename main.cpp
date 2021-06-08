@@ -13,6 +13,7 @@ namespace simple_matrix
 	void Clear(struct container* cont);
 	bool Input(struct container* cont, ifstream& ifst);
 	void Output(struct container* cont, ofstream& ofst);
+	void MultiMethod(struct container* cont, ofstream& ofst);
 }
 using namespace simple_matrix;
 
@@ -65,12 +66,11 @@ int main(int argc, char* argv[])
 
 	if (Input(cont, ifst))
 	{
-		Sort(cont);
 		cout << "Filled container. " << endl;
 		Output(cont, ofst); // Вывод заполненного контейнера
 
-		cout << "Output of square matrix." << endl;
-		FilteredOutput(cont, ofst); // Процедура, реализующая выборочный вывод информации (только о первом виде объетов - стандартные квадратные матрицы)
+		cout << "Calling multimethod." << endl;
+		MultiMethod(cont,ofst);
 
 		Clear(cont); //Очистка контейнера
 		cout << "Empty container. " << endl;

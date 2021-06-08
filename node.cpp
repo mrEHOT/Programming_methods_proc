@@ -107,6 +107,64 @@ namespace simple_matrix
 		return true; // Возвращаем TRUE, т.к. успешно вывели все объекты matrix в поток
 	}
 
+	// Вывод узла (мультиметод)
+	void MMNode(struct node* head, int pos, ofstream& ofst)
+	{
+		node* firstNode = head; // Устанавливаем указатель текущей позиции на "голову" списка
+		node* secondNode;
+
+		for (int i = 0; i < pos; i++)
+		{
+			firstNode = firstNode->next;
+		} // Выполняем прямой обход списка пока не найдем элемент с нужным номером
+		secondNode = firstNode->next;
+
+		switch (firstNode->mtx->key)
+		{
+		case SQUARE:
+			switch (secondNode->mtx->key)
+			{
+			case SQUARE:
+				ofst << "Square Matrix and Square Matrix" << endl << endl;
+				break;
+			case DIAGONAL:
+				ofst << "Square Matrix and Diagonal Matrix" << endl << endl;
+				break;
+			default:
+				ofst << "Unknown matrix type!" << endl << endl;
+				break;
+			}
+			break;
+		case DIAGONAL:
+			switch (secondNode->mtx->key)
+			{
+			case SQUARE:
+				ofst << "Diagonal Matrix and Square Matrix" << endl << endl;
+				break;
+			case DIAGONAL:
+				ofst << "Diagonal Matrix and Diagonal Matrix" << endl << endl;
+				break;
+			default:
+				ofst << "Unknown matrix type!" << endl << endl;
+				break;
+			}
+			break;
+		default:
+			ofst << "Unknown matrix type!" << endl << endl;
+			break;
+		}
+
+		if (!MtxOutput(firstNode->mtx, ofst))
+		{
+			cout << "Cannot to output matrix!" << endl;
+		} // Если вывод матрицы в поток выполнен корректно => TRUE => !TRUE = FALSE => сообщение об ошибке не будет получено
+
+		if (!MtxOutput(secondNode->mtx, ofst))
+		{
+			cout << "Cannot to output matrix!" << endl;
+		} // Если вывод матрицы в поток выполнен корректно => TRUE => !TRUE = FALSE => сообщение об ошибке не будет получено
+	}
+
 	// Выборочный вывод узлов в поток
 	bool FilteredNodeOutput(struct node* head, int pos, ofstream& ofst)
 	{

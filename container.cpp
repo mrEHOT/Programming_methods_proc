@@ -54,7 +54,7 @@ namespace simple_matrix
 		return true;
 	}
 
-	//Вывод содержимого контейнера в указанный поток
+	// Вывод содержимого контейнера в указанный поток
 	void Output(struct container* cont, ofstream& ofst)
 	{
 		ofst << "Container contains " << cont->size << " elements." << endl; // Выводим общее количество элементов в контейнере
@@ -68,7 +68,18 @@ namespace simple_matrix
 		} // Поочередный вывод элементов контейнера в поток
 	}
 
-	//Выборочный вывод в указанный поток.
+	// Мультиметод для вывода информации
+	void MultiMethod(struct container* cont, ofstream& ofst)
+	{
+		ofst << "Multimethod." << endl << endl;
+
+		for (int i = 0; i < cont->size - 1; i++)
+		{
+			MMNode(cont->head, i, ofst);
+		} // Поочередный вывод элементов контейнера в поток
+	}
+
+	// Выборочный вывод в указанный поток.
 	void FilteredOutput(struct container* cont, ofstream& ofst)
 	{
 		ofst << "--------------------------------" << endl;
