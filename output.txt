@@ -1,4 +1,4 @@
-Container contains 4 elements.
+Container contains 5 elements.
 It is Diagonal matrix. Matrix side size: 4. The sum of the elements of the matrix: -903
 Matrix output style - "Line by line" 
 -3	0	0	0	
@@ -20,6 +20,11 @@ Matrix output style - "Line by line"
 It is Diagonal matrix. Matrix side size: 6. The sum of the elements of the matrix: -985
 Matrix output style - "Output to a one-dimensional array" 
 [ 1 2 3 4 5 -1000 ]
+
+It is Triangular matrix. Matrix side size: 2. The sum of the elements of the matrix: 1734
+Matrix output style - "Output by columns" 
+666	69	
+0	999	
 
 Multimethod.
 
@@ -61,5 +66,16 @@ Matrix output style - "Line by line"
 It is Diagonal matrix. Matrix side size: 6. The sum of the elements of the matrix: -985
 Matrix output style - "Output to a one-dimensional array" 
 [ 1 2 3 4 5 -1000 ]
+
+Diagonal Matrix and Triangular Matrix
+
+It is Diagonal matrix. Matrix side size: 6. The sum of the elements of the matrix: -985
+Matrix output style - "Output to a one-dimensional array" 
+[ 1 2 3 4 5 -1000 ]
+
+It is Triangular matrix. Matrix side size: 2. The sum of the elements of the matrix: 1734
+Matrix output style - "Output by columns" 
+666	69	
+0	999	
 
 Container contains 0 elements.

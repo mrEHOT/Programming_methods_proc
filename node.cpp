@@ -130,6 +130,9 @@ namespace simple_matrix
 			case DIAGONAL:
 				ofst << "Square Matrix and Diagonal Matrix" << endl << endl;
 				break;
+			case TRIANGULAR:
+				ofst << "Square Matrix and Triangular Matrix" << endl << endl;
+				break;
 			default:
 				ofst << "Unknown matrix type!" << endl << endl;
 				break;
@@ -143,6 +146,26 @@ namespace simple_matrix
 				break;
 			case DIAGONAL:
 				ofst << "Diagonal Matrix and Diagonal Matrix" << endl << endl;
+				break;
+			case TRIANGULAR:
+				ofst << "Diagonal Matrix and Triangular Matrix" << endl << endl;
+				break;
+			default:
+				ofst << "Unknown matrix type!" << endl << endl;
+				break;
+			}
+			break;
+		case TRIANGULAR:
+			switch (secondNode->mtx->key)
+			{
+			case SQUARE:
+				ofst << "Triangular Matrix and Square Matrix" << endl << endl;
+				break;
+			case DIAGONAL:
+				ofst << "Triangular Matrix and Diagonal Matrix" << endl << endl;
+				break;
+			case TRIANGULAR:
+				ofst << "Triangular Matrix and Triangular Matrix" << endl << endl;
 				break;
 			default:
 				ofst << "Unknown matrix type!" << endl << endl;
